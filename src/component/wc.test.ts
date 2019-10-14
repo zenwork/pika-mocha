@@ -1,4 +1,4 @@
-import { FooBar } from './wc'
+import { FooBar } from './wc.js'
 
 describe('wc', () => {
   describe('content', () => {

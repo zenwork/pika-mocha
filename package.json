@@ -1,0 +1,45 @@
+{
+    "name"           : "ts",
+    "version"        : "1.0.0",
+    "description"    : "",
+    "main"           : "index.js",
+    "scripts"        : {
+        "prepare"    : "npm run build; npm run lint",
+        "build"      : "pika build",
+        "build:watch": "watch \"rm -rf ./pkg; npm run build\" ./src ./assets",
+        "lint"       : "tslint -c tslint.json 'src/**/*.ts'",
+        "test:watch" : "es-dev-server --app-index assets/index.test.html --node-resolve --watch --open --root-dir=./pkg"
+    },
+    "author"         : "",
+    "license"        : "ISC",
+    "devDependencies": {
+        "@pika/pack"                  : "^0.5.0",
+        "@pika/plugin-build-node"     : "^0.6.1",
+        "@pika/plugin-build-web"      : "^0.6.1",
+        "@pika/plugin-copy-assets"    : "^0.6.1",
+        "@pika/plugin-ts-standard-pkg": "^0.6.1",
+        "@types/chai"                 : "^4.2.3",
+        "@types/mocha"                : "^5.2.7",
+        "chai"                        : "^4.2.0",
+        "mocha"                       : "^6.2.1",
+        "pika-plugin-minify"          : "^0.1.0",
+        "es-dev-server"               : "^1.18.4",
+        "tslint"                      : "^5.20.0",
+        "typescript"                  : "^3.6.4",
+        "watch"                       : "^1.0.2"
+    },
+    "@pika/pack"     : {
+        "pipeline": [
+            [
+                "@pika/plugin-ts-standard-pkg"
+            ],
+            [
+                "@pika/plugin-build-web"
+            ],
+            [
+                "@pika/plugin-copy-assets"
+            ]
+        ]
+    },
+    "dependencies"   : {}
+}

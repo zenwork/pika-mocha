@@ -25,7 +25,9 @@ Install all dependencies
 npm install
 ```
 
-## Live-Run Tests
+### Live-Coding
+
+By serving the output of the `./pkg` directory we can run mocha tests, demo, and/or a full-blown application.
 
 watch code changes: 
 ```

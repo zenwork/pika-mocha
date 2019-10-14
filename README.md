@@ -1,5 +1,7 @@
 # ES6 Module Web Component Seed Project
 
+I have built this in an attempt to keep things modern, simple, powerful, and agnostic.  
+
 ## Goal
 
 The goal of this seed project is to build a simple tool-chain for ES6 module-based web components.

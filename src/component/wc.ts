@@ -1,5 +1,5 @@
-import { LitElement } from '../../web_modules/lit-element.js'
-import { html } from '../../web_modules/lit-html.js'
+import { LitElement } from 'lit-element'
+import { html } from 'lit-html'
 
 export class FooBar extends LitElement {
   heading: string;
@@ -10,15 +10,12 @@ export class FooBar extends LitElement {
 
   constructor() {
     super()
-    this.heading = 'Default'
-  }
+    console.log('constructing')
 
-  connectedCallback() {
-    this.render()
   }
 
   render() {
-    return html`<h1>${this.heading}</h1>`
+    return html`<h1>HI LIT!</h1>`
   }
 
 }

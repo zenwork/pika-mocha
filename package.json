@@ -7,7 +7,7 @@
         "build"      : "pika build",
         "build:watch": "watch \"rm -rf ./pkg; npm run build\" ./src ./assets",
         "lint"       : "tslint -c tslint.json 'src/**/*.ts'",
-        "test:watch" : "es-dev-server --app-index assets/index.test.html --node-resolve --watch --open --root-dir=./pkg"
+        "test:watch" : "es-dev-server --app-index assets/test.html --node-resolve --watch --open --root-dir=./pkg"
     },
     "author"         : "Florian Hehlen <florian@hehlen.name>",
     "license"        : "MIT",
@@ -23,6 +23,7 @@
         "@types/mocha"                : "^5.2.7",
         "chai"                        : "^4.2.0",
         "es-dev-server"               : "^1.18.4",
+        "serve"                       : "^11.2.0",
         "mocha"                       : "^6.2.1",
         "pika-plugin-minify"          : "^0.1.0",
         "tslint"                      : "^5.20.0",
@@ -38,11 +39,17 @@
                 "@pika/plugin-build-web"
             ],
             [
-                "@pika/plugin-copy-assets"
-            ],
-            [
                 "@pika/plugin-bundle-web",
                 {}
+            ],
+            [
+                "@pika/plugin-copy-assets",
+                {
+                    "files": [
+                        "/assets",
+                        "/web_modules"
+                    ]
+                }
             ]
         ]
     },

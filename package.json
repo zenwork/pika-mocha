@@ -23,7 +23,6 @@
         "@types/mocha"                : "^5.2.7",
         "chai"                        : "^4.2.0",
         "es-dev-server"               : "^1.18.4",
-        "serve"                       : "^11.2.0",
         "mocha"                       : "^6.2.1",
         "pika-plugin-minify"          : "^0.1.0",
         "tslint"                      : "^5.20.0",

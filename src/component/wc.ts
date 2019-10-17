@@ -2,7 +2,7 @@ import { LitElement } from 'lit-element'
 import { html } from 'lit-html'
 
 export class FooBar extends LitElement {
-  heading: string;
+  heading: string
 
   static get properties() {
     return {heading: {type: String}}
@@ -11,11 +11,12 @@ export class FooBar extends LitElement {
   constructor() {
     super()
     console.log('constructing')
+    this.heading = 'HI Lit-Element!'
 
   }
 
   render() {
-    return html`<h1>HI LIT!</h1>`
+    return html`<h1>${this.heading}</h1>`
   }
 
 }

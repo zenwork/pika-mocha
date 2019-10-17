@@ -7,7 +7,7 @@
         "build"      : "pika build",
         "build:watch": "watch \"rm -rf ./pkg; npm run build\" ./src ./assets",
         "lint"       : "tslint -c tslint.json 'src/**/*.ts'",
-        "test:watch" : "es-dev-server --app-index assets/test.html --node-resolve --watch --open --root-dir=./pkg"
+        "test:watch" : "es-dev-server --config es-dev-server.config.js --root-dir ./pkg"
     },
     "author"         : "Florian Hehlen <florian@hehlen.name>",
     "license"        : "MIT",
@@ -47,7 +47,8 @@
                 {
                     "files": [
                         "/assets",
-                        "/web_modules"
+                        "/node_modules/lit-html",
+                        "/node_modules/lit-element"
                     ]
                 }
             ]

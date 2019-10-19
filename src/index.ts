@@ -1,3 +1,3 @@
-export {FooBar} from './component/wc.js'
+export {FooBar} from './component/wc'
 
 console.log('loading')

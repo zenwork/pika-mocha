@@ -1,33 +1,25 @@
+import { customElement, LitElement } from 'lit-element'
+import { html } from 'lit-html'
 
-export class FooBar extends HTMLElement {
+@customElement('hello-world')
+export class FooBar extends LitElement {
+  heading: string
 
-  static get observedAttributes() { return ['heading'] }
+  static get properties() {
+    return {heading: {type: String}}
+  }
 
   constructor() {
     super()
-  }
+    console.log('constructing')
+    this.heading = 'HI Lit-Element!'
 
-  connectedCallback() {
-    this.heading = 'Default'
-    this.render()
   }
 
   render() {
-    this.innerHTML = `<h1>${this.getAttribute('heading')}</h1>`
-  }
-
-  get heading(): string | null {
-    return this.getAttribute('heading')
-  }
-
-  set heading(val: string | null) {
-    this.setAttribute('heading', val ? val : '')
-  }
-
-  attributeChangedCallback(name: any, oldValue: any, newValue: any) {
-    this.render()
+    return html`<h1>${this.heading}</h1>`
   }
 
 }
 
-customElements.define('foo-bar', FooBar)
+// customElements.define('foo-bar', FooBar)

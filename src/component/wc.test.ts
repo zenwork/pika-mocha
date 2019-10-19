@@ -2,38 +2,47 @@ import { FooBar } from './wc'
 
 describe('wc', () => {
   describe('content', () => {
-    let container: HTMLDivElement
     let wc: FooBar
+    let container: Element | null
 
-    beforeEach(() => {
-      wc = new FooBar()
-      container = document.querySelector('#container')
-      container.appendChild(wc)
-    })
+    beforeEach(async () => {
+      // Use createElement to test it is registered correctly
+      wc = (document.createElement('hello-world') as FooBar)
 
-    afterEach(() => {
+      // Connect to DOM in case there's any `connectedCallback` logic
+      container = document.body.querySelector('#container')
       container.innerHTML = null
+      container.appendChild(wc)
+
+      // Wait for initial render
+      await wc.updateComplete
+
     })
 
-    function q() {
-      return wc.querySelector('h1')
+    function q(): HTMLHeadingElement {
+      return wc.shadowRoot.querySelector('h1')
     }
 
-    it('find h1 label', () => {
+    it('find h1 label', async () => {
       const h1 = q()
       chai.expect(h1).to.not.be.null
-      chai.expect(h1.innerHTML).to.equal('Default')
+      chai.expect(h1.textContent).to.equal('HI Lit-Element!')
 
       wc.setAttribute('heading', 'boohoo')
-      chai.expect(q().innerHTML).to.equal('boohoo')
+      await wc.updateComplete
+      chai.expect(q().textContent).to.equal('boohoo')
 
       wc.heading = 'bing bing bing'
-      chai.expect(q().innerHTML).to.equal('bing bing bing')
+      await wc.updateComplete
+      chai.expect(q().textContent).to.equal('bing bing bing')
 
     })
 
-    it('add component', () => {
-      container.appendChild(new FooBar())
+    it('use the attribute', async () => {
+      wc.setAttribute('heading', 'I used the heading')
+      await wc.updateComplete
+      chai.expect(q().textContent).to.equal('I used the heading')
     })
+
   })
 })

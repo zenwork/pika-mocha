@@ -1,6 +1,7 @@
-import { LitElement } from 'lit-element'
+import { customElement, LitElement } from 'lit-element'
 import { html } from 'lit-html'
 
+@customElement('hello-world')
 export class FooBar extends LitElement {
   heading: string
 
@@ -21,4 +22,4 @@ export class FooBar extends LitElement {
 
 }
 
-customElements.define('foo-bar', FooBar)
+// customElements.define('foo-bar', FooBar)

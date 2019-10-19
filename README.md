@@ -25,23 +25,41 @@ Install all dependencies
 
 ```
 npm install
+# or 
+yarn
 ```
 
 ### Live-Coding
 
-By serving the output of the `./pkg` directory we can run mocha tests, demo, and/or a full-blown application.
+Pika does not support a watch mode compatible with live-coding at the moment. So we have to jump through a few hoops.
+* serve content from `.serve` directory
+* run `pika build` which rebuilds everything into the `pkg` dir
+* rsync `pkg` to `.serve` so that only changed files are updated. This will then trigger `es-dev-server` to reload the page.
 
-watch code changes: 
+Serve: 
 ```
-npm run build:watch
+npm run serve
+# or
+yarn serve
 ``` 
 
-serve tests:
+watch and re-build on code change:
 ```
-npm run test:watch
+npm run build:watch
+# or
+yarn build:watch
+```
+
+### Headless testing
+
+At the moment this setup only allows headless testing with bundled code.
+
+```
+npm run test:headless
+# or
+yarn test:headless
 ```
 
 ## Todo
-* test with headless browsers
-* intgrate lit-element
+* improve headless testing to run in a single watching process
 * compatible with IE 11 and Edge (pre-chromium integration)

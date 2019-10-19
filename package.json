@@ -4,10 +4,10 @@
     "description"    : "",
     "scripts"        : {
         "build"        : "pika build",
-        "build:watch"  : "watch \"npm run build\" ./src ./assets",
+        "build:watch"  : "watch \"npm run build; rsync -cavzu pkg/ .serve/ \" ./src ./assets",
         "lint"         : "tslint -c tslint.json 'src/**/*.ts'",
         "prepare"      : "npm run build; npm run lint",
-        "serve"        : "es-dev-server --config es-dev-server.config.js --root-dir ./pkg",
+        "serve"        : "es-dev-server --config es-dev-server.config.js --root-dir ./serve",
         "test:headless": "mocha-headless-chrome -f http://localhost:8888/assets/test-bundled.html"
     },
     "author"         : "Florian Hehlen <florian@hehlen.name>",

@@ -67,3 +67,4 @@ package-lock.json
 
 pkg/**/*
 web_modules
+.serve

@@ -1,6 +1,16 @@
 # ES6 Module Web Component Seed Project
 
-I have built this in an attempt to keep things modern, simple, powerful, and agnostic.  
+I have built this in an attempt to keep things modern, simple, powerful, and agnostic.
+
+## Quick Start
+
+* On Mac OS X or on Linux run the following in a directory where you want to create a project.
+```
+wget -q -O /tmp/init.sh https://raw.githubusercontent.com/zenwork/pika-mocha/master/init.sh && sh /tmp/init.sh
+``` 
+* Then cd to the directory
+* run `npm run serve`
+* open <http://localhost:8888/assets> 
 
 ## Goal
 

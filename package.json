@@ -1,7 +1,7 @@
 {
     "name"           : "pika-mocha",
     "version"        : "1.0.0",
-    "description"    : "",
+    "description"    : "pika pack based web component project",
     "scripts"        : {
         "build"        : "pika build",
         "build:serve"  : "npm run build && mkdir -p .serve/node_modules && rsync -cavzur pkg/ .serve/ && rsync -cavzur ./node_modules/lit-html .serve/node_modules/lit-html && rsync -cavzur ./node_modules/lit-element .serve/node_modules/lit-element",

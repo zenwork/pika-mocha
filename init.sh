@@ -27,10 +27,14 @@ rm -rf $archive
 rm -rf pika-mocha-master/.git
 rm -rf pika-mocha-master/README.md
 sed -i -e "s/pika-mocha/$target/" pika-mocha-master/package.json
-sed -i -e "s/\"version\".*:.*\"[0-9].[0-9].[0-9]\",/"version"        : "0.0.1",/" pika-mocha-master/package.json
+sed -i -e "s/\"version\".*:.*\"[0-9].[0-9].[0-9]\",/\"version\"        : \"0.0.1\",/" pika-mocha-master/package.json
 sed -i -e "s/^.*author.*$//" pika-mocha-master/package.json
 sed -i -e '/^\s*$/d' pika-mocha-master/package.json
 mv pika-mocha-master "$target"
-printf " ...done!"
+printf " ... initializing the project"
+cd $target
+npm install
+echo ""
+echo "run 'npm run serve' and open http://localhost:8888/assets "
 
 

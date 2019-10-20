@@ -4,7 +4,7 @@
     "description"    : "",
     "scripts"        : {
         "build"        : "pika build",
-        "build:serve"  : "npm run build && rsync -cavzur pkg/ .serve/ && rsync -cavzur ./node_modules/lit-html .serve/node_modules/lit-html && rsync -cavzur ./node_modules/lit-element .serve/node_modules/lit-element",
+        "build:serve"  : "npm run build && mkdir -p .serve/node_modules && rsync -cavzur pkg/ .serve/ && rsync -cavzur ./node_modules/lit-html .serve/node_modules/lit-html && rsync -cavzur ./node_modules/lit-element .serve/node_modules/lit-element",
         "build:watch"  : "watch \"npm run build:serve\" ./src ./assets",
         "lint"         : "tslint -c tslint.json 'src/**/*.ts'",
         "prepare"      : "npm run build:serve; npm run lint",

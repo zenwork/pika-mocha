@@ -2,8 +2,17 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-target=${1:-"web-project"}
+target=""
 archive=/tmp/pika-mocha.zip
+
+echo "creating new pika-mocha project"
+printf "project name (web-project): "
+read -r target
+
+if [[ -z "$target" ]]
+then
+  target=web-project
+fi
 
 if [[ -d ./"$target" ]]
 then
@@ -11,13 +20,12 @@ then
     exit 1
 fi
 
-printf "downloading & unpacking"
+printf "downloading and preparing %s" "$target"
 wget --no-check-certificate --quiet --output-document $archive https://github.com/zenwork/pika-mocha/archive/master.zip
 unzip -oq -d . $archive
 rm -rf $archive
 rm -rf pika-mocha-master/.git
 rm -rf pika-mocha-master/README.md
-printf " ...preparing %s" "$target"
 sed -i -e "s/pika-mocha/$target/" pika-mocha-master/package.json
 sed -i -e "s/\"version\".*:.*\"[0-9].[0-9].[0-9]\",/"version"        : "0.0.1",/" pika-mocha-master/package.json
 sed -i -e "s/^.*author.*$//" pika-mocha-master/package.json

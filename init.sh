@@ -31,7 +31,7 @@ sed -i -e "s/\"version\".*:.*\"[0-9].[0-9].[0-9]\",/\"version\"        : \"0.0.1
 sed -i -e "s/^.*author.*$//" pika-mocha-master/package.json
 sed -i -e '/^\s*$/d' pika-mocha-master/package.json
 mv pika-mocha-master "$target"
-printf " ... initializing the project"
+printf " ... initializing the project\n"
 cd $target
 npm install
 echo ""

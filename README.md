@@ -73,3 +73,5 @@ yarn test:headless
 ## Todo
 * improve headless testing to run in a single watching process
 * compatible with IE 11 and Edge (pre-chromium integration)
+* sort out imports so using `.js` is not neccessary 
+* maps not working in mocha test failures

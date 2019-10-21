@@ -4,12 +4,13 @@
     "description"    : "pika pack and mocha based web component project",
     "scripts"        : {
         "build"        : "pika build",
-        "build:serve"  : "npm run build && mkdir -p .serve/node_modules && rsync -cavzur pkg/ .serve/ && rsync -cavzur ./node_modules/lit-html .serve/node_modules/lit-html && rsync -cavzur ./node_modules/lit-element .serve/node_modules/lit-element",
+        "build:serve"  : "npm run build && mkdir -p .serve/node_modules && rsync -cavzur pkg/ .serve/  > /dev/null 2>&1 && rsync -cavzur ./node_modules/lit-html .serve/node_modules  > /dev/null 2>&1 && rsync -cavzur ./node_modules/lit-element .serve/node_modules  > /dev/null 2>&1 ",
         "build:watch"  : "watch \"npm run build:serve\" ./src ./assets",
         "lint"         : "tslint -c tslint.json 'src/**/*.ts'",
         "prepare"      : "npm run build:serve; npm run lint",
         "serve"        : "es-dev-server --config es-dev-server.config.js --root-dir .serve",
-        "test:headless": "mocha-headless-chrome -f http://localhost:8888/assets/test-bundled.html"
+        "test:headless": "mocha-headless-chrome -f http://localhost:8888/assets/test-bundled.html",
+        "test:watch"   : "watch \"npm run build:serve && npm run test:headless\" ./src ./assets"
     },
     "author"         : "Florian Hehlen <florian@hehlen.name>",
     "license"        : "MIT",

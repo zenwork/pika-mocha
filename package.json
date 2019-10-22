@@ -28,7 +28,6 @@
         "es-dev-server"               : "^1.18.4",
         "mocha"                       : "^6.2.1",
         "mocha-headless-chrome"       : "^2.0.3",
-        "pika-plugin-minify"          : "^0.1.0",
         "tslint"                      : "^5.20.0",
         "typescript"                  : "^3.6.4",
         "watch"                       : "^1.0.2"

@@ -25,6 +25,7 @@ wget --no-check-certificate --quiet --output-document $archive https://github.co
 unzip -oq -d . $archive
 rm -rf $archive
 rm -rf pika-mocha-master/.git
+rm -f yarn.lock
 rm -rf pika-mocha-master/README.md
 sed -i -e "s/pika-mocha/$target/" pika-mocha-master/package.json
 sed -i -e "s/\"version\".*:.*\"[0-9].[0-9].[0-9]\",/\"version\"        : \"0.0.1\",/" pika-mocha-master/package.json

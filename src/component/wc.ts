@@ -11,7 +11,6 @@ export class FooBar extends LitElement {
 
   constructor() {
     super()
-    console.log('constructing')
     this.heading = 'HI Lit-Element!'
 
   }
@@ -21,5 +20,3 @@ export class FooBar extends LitElement {
   }
 
 }
-
-// customElements.define('foo-bar', FooBar)

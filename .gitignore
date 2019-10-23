@@ -63,8 +63,6 @@ typings/
 *.iml
 .idea
 
-package-lock.json
-
 pkg/**/*
 web_modules
 .serve
